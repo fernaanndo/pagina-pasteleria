@@ -157,7 +157,7 @@ Cada componente lleva **al menos una prueba**.
 | Componente | Responsable | Lo usan | Props principales |
 |---|---|---|---|
 | `CampoFormulario` | Fernando (**primero**) | Login, Registro, Contacto, ProductoForm, UsuarioForm | `label`, `id`, `value`, `onChange`, `error`, `type` |
-| `SelectorRegionComuna` | Fernando (**primero**) | Registro, UsuarioForm | `region`, `comuna`, `onChange`, `errores` |
+| `SelectorRegionComuna` | Fernando (**primero**) | Registro, UsuarioForm | `region`, `comuna`, `onChangeRegion`, `onChangeComuna`, `errorRegion`, `errorComuna` |
 | `Navbar` | Fernando | TiendaLayout | — (lee el carrito desde el contexto) |
 | `Footer` | Fernando | TiendaLayout | — |
 | `ItemCarrito` | Fernando | Carrito | `item`, `onCambiarCantidad`, `onEliminar` |
@@ -179,4 +179,4 @@ Cada componente lleva **al menos una prueba**.
 - `ProductoCard` (Felipe) tiene un botón "Agregar al carrito" que usa `CarritoContext` (Fernando). Mientras el contexto no esté listo, el componente recibe la función por props (`onAgregar`).
 - La Navbar (Fernando) muestra la cantidad de productos del carrito y los enlaces a las páginas de Felipe.
 - `Login` (Felipe) redirige a `/admin` cuando el usuario es Administrador.
-- Felipe usa `CampoFormulario` y `SelectorRegionComuna` (Fernando) en Login, Registro y Contacto.
+- Felipe usa `CampoFormulario` en Login, Registro y Contacto, y `SelectorRegionComuna` en Registro.
