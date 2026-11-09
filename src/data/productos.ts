@@ -1,5 +1,7 @@
+import type { Producto } from "../types/producto";
+
 // Categorías de productos (listado del caso)
-const categorias = [
+export const categorias = [
   "Tortas Cuadradas",
   "Tortas Circulares",
   "Postres Individuales",
@@ -9,12 +11,10 @@ const categorias = [
   "Productos Vegana",
   "Tortas Especiales",
 ];
-
-// Datos de prueba: stock y stockCritico no vienen en el caso, se agregaron para el formulario
-const productos = [
+export const productos: Producto[] = [
   {
     codigo: "TC001",
-    imagen: "./img/products/web-TC001.jpg",
+    imagen: "/img/products/web-TC001.jpg",
     categoria: "Tortas Cuadradas",
     nombre: "Torta Cuadrada de Chocolate",
     precio: 45000,
@@ -25,7 +25,7 @@ const productos = [
   },
   {
     codigo: "TC002",
-    imagen: "./img/products/web-TC002.jpg",
+    imagen: "/img/products/web-TC002.jpg",
     categoria: "Tortas Cuadradas",
     nombre: "Torta Cuadrada de Frutas",
     precio: 50000,
@@ -36,7 +36,7 @@ const productos = [
   },
   {
     codigo: "TT001",
-    imagen: "./img/products/web-TT001.jpg",
+    imagen: "/img/products/web-TT001.jpg",
     categoria: "Tortas Circulares",
     nombre: "Torta Circular de Vainilla",
     precio: 40000,
@@ -47,7 +47,7 @@ const productos = [
   },
   {
     codigo: "TT002",
-    imagen: "./img/products/web-TT002.jpg",
+    imagen: "/img/products/web-TT002.jpg",
     categoria: "Tortas Circulares",
     nombre: "Torta Circular de Manjar",
     precio: 42000,
@@ -58,7 +58,7 @@ const productos = [
   },
   {
     codigo: "PI001",
-    imagen: "./img/products/web-PI001.jpg",
+    imagen: "/img/products/web-PI001.jpg",
     categoria: "Postres Individuales",
     nombre: "Mousse de Chocolate",
     precio: 5000,
@@ -69,7 +69,7 @@ const productos = [
   },
   {
     codigo: "PI002",
-    imagen: "./img/products/web-PI002.jpg",
+    imagen: "/img/products/web-PI002.jpg",
     categoria: "Postres Individuales",
     nombre: "Tiramisú Clásico",
     precio: 5500,
@@ -80,7 +80,7 @@ const productos = [
   },
   {
     codigo: "PSA001",
-    imagen: "./img/products/web-PSA001.jpg",
+    imagen: "/img/products/web-PSA001.jpg",
     categoria: "Productos Sin Azúcar",
     nombre: "Torta Sin Azúcar de Naranja",
     precio: 48000,
@@ -91,7 +91,7 @@ const productos = [
   },
   {
     codigo: "PSA002",
-    imagen: "./img/products/web-PSA002.jpg",
+    imagen: "/img/products/web-PSA002.jpg",
     categoria: "Productos Sin Azúcar",
     nombre: "Cheesecake Sin Azúcar",
     precio: 47000,
@@ -102,7 +102,7 @@ const productos = [
   },
   {
     codigo: "PT001",
-    imagen: "./img/products/web-PT001.jpg",
+    imagen: "/img/products/web-PT001.jpg",
     categoria: "Pastelería Tradicional",
     nombre: "Empanada de Manzana",
     precio: 3000,
@@ -113,7 +113,7 @@ const productos = [
   },
   {
     codigo: "PT002",
-    imagen: "./img/products/web-PT002.jpg",
+    imagen: "/img/products/web-PT002.jpg",
     categoria: "Pastelería Tradicional",
     nombre: "Tarta de Santiago",
     precio: 6000,
@@ -124,7 +124,7 @@ const productos = [
   },
   {
     codigo: "PG001",
-    imagen: "./img/products/web-PG001.jpg",
+    imagen: "/img/products/web-PG001.jpg",
     categoria: "Productos Sin Gluten",
     nombre: "Brownie Sin Gluten",
     precio: 4000,
@@ -135,7 +135,7 @@ const productos = [
   },
   {
     codigo: "PG002",
-    imagen: "./img/products/web-PG002.jpg",
+    imagen: "/img/products/web-PG002.jpg",
     categoria: "Productos Sin Gluten",
     nombre: "Pan Sin Gluten",
     precio: 3500,
@@ -146,7 +146,7 @@ const productos = [
   },
   {
     codigo: "PV001",
-    imagen: "./img/products/web-PV001.jpg",
+    imagen: "/img/products/web-PV001.jpg",
     categoria: "Productos Vegana",
     nombre: "Torta Vegana de Chocolate",
     precio: 50000,
@@ -157,7 +157,7 @@ const productos = [
   },
   {
     codigo: "PV002",
-    imagen: "./img/products/web-PV002.jpg",
+    imagen: "/img/products/web-PV002.jpg",
     categoria: "Productos Vegana",
     nombre: "Galletas Veganas de Avena",
     precio: 4500,
@@ -168,7 +168,7 @@ const productos = [
   },
   {
     codigo: "TE001",
-    imagen: "./img/products/web-TE001.jpg",
+    imagen: "/img/products/web-TE001.jpg",
     categoria: "Tortas Especiales",
     nombre: "Torta Especial de Cumpleaños",
     precio: 55000,
@@ -179,7 +179,7 @@ const productos = [
   },
   {
     codigo: "TE002",
-    imagen: "./img/products/web-TE002.jpg",
+    imagen: "/img/products/web-TE002.jpg",
     categoria: "Tortas Especiales",
     nombre: "Torta Especial de Boda",
     precio: 60000,

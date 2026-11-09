@@ -1,34 +1,33 @@
-function esRequerido(valor) {
+export function esRequerido(valor: string) {
     if (valor.trim() === "") return "Este campo es obligatorio";
     return null;
 }
-
-function largoMinimo(valor, min) {
+export function largoMinimo(valor: string, min: number) {
     if (valor.length < min) return `Debe tener al menos ${min} caracteres`;
     return null;
 }
 
-function largoMaximo(valor, max) {
+export function largoMaximo(valor: string, max: number) {
     if (valor.length > max) return `Máximo ${max} caracteres (llevas ${valor.length})`;
     return null;
 }
 
-function esEntero(valor) {
+export function esEntero(valor: string) {
     if (!/^\d+$/.test(valor)) return "Debe ser un número entero, sin decimales";
     return null;
 }
 
-function esDecimal(valor) {
+export function esDecimal(valor: string) {
     if (!/^\d+([.,]\d+)?$/.test(valor)) return "Debe ser un número, por ejemplo 4500 o 4500.50";
     return null;
 }
 
-function esMayorIgualQue(valor, min) {
+export function esMayorIgualQue(valor: string, min: number) {
     if (Number(valor.replace(",", ".")) < min) return `Debe ser mayor o igual a ${min}`;
     return null;
 }
 
-function dominioPermitido(correo) {
+export function dominioPermitido(correo: string) {
     const dominios = ["duoc.cl", "profesor.duoc.cl", "gmail.com"];
     const permitido = dominios.some((dominio) => correo.endsWith("@" + dominio));
     if (!permitido) return "Solo se permiten correos @duoc.cl, @profesor.duoc.cl o @gmail.com";
@@ -37,7 +36,7 @@ function dominioPermitido(correo) {
 
 // Valida un RUN chileno sin puntos ni guion, por ejemplo 12345678K
 // El dígito verificador se calcula con el algoritmo módulo 11
-function validarRun(run) {
+export function validarRun(run: string) {
     if (!/^\d{6,8}[0-9K]$/i.test(run)) return "El RUN debe tener solo números y el dígito verificador, sin puntos ni guion";
 
     const cuerpo = run.slice(0, -1);

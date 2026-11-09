@@ -1,10 +1,12 @@
+import type { TipoUsuario, Usuario } from "../types/usuario";
+
 // Roles asociados al sistema (Anexo 1):
 // - Administrador: tiene acceso total al sistema.
 // - Vendedor: puede visualizar la lista de productos y su detalle, y la lista de órdenes y su detalle.
 // - Cliente: solo puede acceder a la tienda.
-const tiposUsuario = ["Administrador", "Vendedor", "Cliente"];
+export const tiposUsuario: TipoUsuario[] = ["Administrador", "Vendedor", "Cliente"];
 
-const usuarios = [
+export const usuarios: Usuario[] = [
   {
     run: "123456785",
     nombre: "Ana",

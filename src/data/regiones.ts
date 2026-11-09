@@ -1,6 +1,8 @@
+import type { Region } from "../types/region";
+
 // Arreglo de regiones con algunas de sus comunas
 
-const regiones = [
+export const regiones: Region[] = [
   {
     nombre: "Región de Arica y Parinacota",
     comunas: ["Arica", "Camarones", "Putre", "General Lagos"],
