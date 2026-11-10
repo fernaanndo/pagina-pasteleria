@@ -10,6 +10,6 @@ describe('App', () => {
         <App />
       </MemoryRouter>,
     )
-    expect(screen.getByRole('heading', { name: 'Dashboard' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Panel de administración' })).toBeInTheDocument()
   })
 })
