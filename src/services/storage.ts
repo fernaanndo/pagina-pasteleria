@@ -1,11 +1,13 @@
 import type { Producto } from "../types/producto";
 import type { Usuario } from "../types/usuario";
+import type { ItemCarrito } from "../types/carrito";
 import { productos } from "../data/productos";
 import { usuarios } from "../data/usuarios";
 
 
 const CLAVE_PRODUCTOS = "productos";
 const CLAVE_USUARIOS = "usuarios";
+const CLAVE_CARRITO = "pasteleria-carrito";
 
 // Esta funcion devuelve los productos guardados en localStorage. Si no hay productos guardados, guarda los productos iniciales (src/data/productos.ts) y los devuelve.
 export function obtenerProductos(): Producto[] {
@@ -87,4 +89,23 @@ export function actualizarUsuario(actualizado: Usuario): void {
 
 export function eliminarUsuario(run: string) : void {
     guardarUsuarios(obtenerUsuarios().filter((u) => u.run !== run));
+}
+
+export function obtenerCarrito(): ItemCarrito[] {
+    try{
+        const guardado : unknown = JSON.parse(localStorage.getItem(CLAVE_CARRITO) ?? "[]");
+        if (!Array.isArray(guardado)) return [];
+
+        const lista = obtenerProductos();
+        return guardado.filter((item: ItemCarrito) =>
+            lista.some((p) => p.codigo === item.codigo) &&
+            Number.isInteger(item.cantidad) && item.cantidad > 0 && item.cantidad <= 99
+        );
+    } catch {
+        return [];
+    }
+}
+
+export function guardarCarrito(items: ItemCarrito[]): void {
+    localStorage.setItem(CLAVE_CARRITO, JSON.stringify(items));
 }
