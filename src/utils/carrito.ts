@@ -1,4 +1,5 @@
-import type { ItemCarrito } from "../types/carrito";
+import type { ItemCarrito, LineaCarrito } from "../types/carrito";
+import type { Producto } from "../types/producto";
 
 export const CANTIDAD_MAXIMA = 99;
 
@@ -40,4 +41,18 @@ export function quitarItem(
 
 export function contarItems(items: ItemCarrito[]): number {
   return items.reduce((total, item) => total + item.cantidad, 0);
+}
+
+export function armarLineas(
+  items: ItemCarrito[],
+  productos: Producto[],
+): LineaCarrito[] {
+  return items.flatMap((item) => {
+    const producto = productos.find((p) => p.codigo === item.codigo);
+    return producto ? [{ producto, cantidad: item.cantidad }] : [];
+  });
+}
+
+export function calcularTotal(lineas: LineaCarrito[]): number {
+    return lineas.reduce((total, linea) => total + linea.producto.precio * linea.cantidad, 0)
 }
