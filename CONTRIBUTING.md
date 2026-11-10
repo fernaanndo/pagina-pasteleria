@@ -161,7 +161,7 @@ Cada componente lleva **al menos una prueba**.
 | `Navbar` | Fernando | TiendaLayout | — (lee el carrito desde el contexto) |
 | `Footer` | Fernando | TiendaLayout | — |
 | `ItemCarrito` | Fernando | Carrito | `item`, `onCambiarCantidad`, `onEliminar` |
-| `ResumenCarrito` | Fernando | Carrito | `total`, `onVaciar`, `onComprar` |
+| `ResumenCarrito` | Fernando | Carrito | `total` |
 | `TarjetaResumen` | Fernando | Dashboard | `titulo`, `descripcion`, `enlace`, `textoBoton` |
 | `TablaProductos` | Fernando | AdminProductos | `productos`, `onEliminar` |
 | `BadgeStock` | Fernando | TablaProductos | `stock`, `stockCritico` |
