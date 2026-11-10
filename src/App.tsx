@@ -17,36 +17,39 @@ import AdminUsuarios from "./pages/admin/AdminUsuarios"
 import UsuarioForm from "./pages/admin/UsuarioForm"
 import NotFound from "./pages/NotFound"
 import AdminLayout from "./layouts/AdminLayout"
+import CarritoProvider from "./context/CarritoProvider"
 
 
 function App() {
   return (
-    <Routes>
-      <Route element={<TiendaLayout />}>
-        <Route index element={<Home />} />
-        <Route path="productos" element={<Productos />} />
-        <Route path="productos/:codigo" element={<DetalleProducto />} />
-        <Route path="carrito" element={<Carrito />} />
-        <Route path="login" element={<Login />} />
-        <Route path="registro" element={<Registro />} />
-        <Route path="nosotros" element={<Nosotros />} />
-        <Route path="contacto" element={<Contacto />} />
-        <Route path="blogs" element={<Blogs />} />
-        <Route path="blogs/:id" element={<DetalleBlog />} />
-      </Route>
+    <CarritoProvider>
+      <Routes>
+        <Route element={<TiendaLayout />}>
+          <Route index element={<Home />} />
+          <Route path="productos" element={<Productos />} />
+          <Route path="productos/:codigo" element={<DetalleProducto />} />
+          <Route path="carrito" element={<Carrito />} />
+          <Route path="login" element={<Login />} />
+          <Route path="registro" element={<Registro />} />
+          <Route path="nosotros" element={<Nosotros />} />
+          <Route path="contacto" element={<Contacto />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="blogs/:id" element={<DetalleBlog />} />
+        </Route>
 
-      <Route path="admin" element={<AdminLayout />}>
-        <Route index element={<Dashboard />} />
-        <Route path="productos" element={<AdminProductos />} />
-        <Route path="productos/nuevo" element={<ProductoForm />} />
-        <Route path="productos/:codigo/editar" element={<ProductoForm />} />
-        <Route path="usuarios" element={<AdminUsuarios />} />
-        <Route path="usuarios/nuevo" element={<UsuarioForm />} />
-        <Route path="usuarios/:run/editar" element={<UsuarioForm />} />
-      </Route>
+        <Route path="admin" element={<AdminLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="productos" element={<AdminProductos />} />
+          <Route path="productos/nuevo" element={<ProductoForm />} />
+          <Route path="productos/:codigo/editar" element={<ProductoForm />} />
+          <Route path="usuarios" element={<AdminUsuarios />} />
+          <Route path="usuarios/nuevo" element={<UsuarioForm />} />
+          <Route path="usuarios/:run/editar" element={<UsuarioForm />} />
+        </Route>
 
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </CarritoProvider>
   )
 }
 export default App
