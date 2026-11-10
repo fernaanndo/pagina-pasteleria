@@ -39,3 +39,52 @@ export function obtenerUsuarios(): Usuario[] {
 export function guardarUsuarios(lista: Usuario[]): void {
     localStorage.setItem(CLAVE_USUARIOS, JSON.stringify(lista));
 }
+
+export function buscarProductoPorCodigo(codigo: string): Producto | undefined {
+    return obtenerProductos().find((p) => p.codigo === codigo);
+}
+
+export function agregarProducto(producto: Producto): boolean {
+    const lista = obtenerProductos();
+
+    if (lista.some(p => p.codigo === producto.codigo)) {
+        return false
+    }
+
+    guardarProductos([...lista, producto]);
+    return true;
+}
+
+export function actualizarProducto(actualizado: Producto): void {
+    const lista = obtenerProductos().map((p) =>
+        p.codigo === actualizado.codigo ? actualizado : p);
+    guardarProductos(lista);
+}
+
+export function eliminarProducto(codigo: string): void {
+    guardarProductos(obtenerProductos().filter((p) => p.codigo !== codigo));
+}
+
+export function buscarUsuarioPorRun(run: string): Usuario | undefined {
+    return obtenerUsuarios().find((u) => u.run === run);
+}
+
+export function agregarUsuario(usuario: Usuario): boolean {
+    const lista = obtenerUsuarios();
+    
+    if (lista.some(u => u.run === usuario.run || u.correo === usuario.correo)) {
+        return false
+    }
+    guardarUsuarios([...lista, usuario]);
+    return true;
+}
+
+export function actualizarUsuario(actualizado: Usuario): void {
+    const lista = obtenerUsuarios().map((u) =>
+        u.run === actualizado.run ? actualizado : u);
+    guardarUsuarios(lista);
+}
+
+export function eliminarUsuario(run: string) : void {
+    guardarUsuarios(obtenerUsuarios().filter((u) => u.run !== run));
+}
