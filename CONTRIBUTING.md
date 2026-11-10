@@ -156,13 +156,13 @@ Cada componente lleva **al menos una prueba**.
 
 | Componente | Responsable | Lo usan | Props principales |
 |---|---|---|---|
-| `CampoFormulario` | Fernando (**primero**) | Login, Registro, Contacto, ProductoForm, UsuarioForm | `label`, `id`, `value`, `onChange`, `error`, `type` |
+| `CampoFormulario` | Fernando (**primero**) | Login, Registro, Contacto, ProductoForm, UsuarioForm | `label`, `id`, `value`, `onChange`, `error`, `type`, `readOnly`, `inputMode` y `prefijo` |
 | `SelectorRegionComuna` | Fernando (**primero**) | Registro, UsuarioForm | `region`, `comuna`, `onChangeRegion`, `onChangeComuna`, `errorRegion`, `errorComuna` |
 | `Navbar` | Fernando | TiendaLayout | — (lee el carrito desde el contexto) |
 | `Footer` | Fernando | TiendaLayout | — |
 | `ItemCarrito` | Fernando | Carrito | `item`, `onCambiarCantidad`, `onEliminar` |
 | `ResumenCarrito` | Fernando | Carrito | `total`, `onVaciar`, `onComprar` |
-| `TarjetaResumen` | Fernando | Dashboard | `titulo`, `valor`, `enlace` |
+| `TarjetaResumen` | Fernando | Dashboard | `titulo`, `descripcion`, `enlace`, `textoBoton` |
 | `TablaProductos` | Fernando | AdminProductos | `productos`, `onEliminar` |
 | `BadgeStock` | Fernando | TablaProductos | `stock`, `stockCritico` |
 | `TablaUsuarios` | Fernando | AdminUsuarios | `usuarios`, `onEliminar` |
