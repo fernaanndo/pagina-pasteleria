@@ -39,3 +39,15 @@ export function obtenerUsuarios(): Usuario[] {
 export function guardarUsuarios(lista: Usuario[]): void {
     localStorage.setItem(CLAVE_USUARIOS, JSON.stringify(lista));
 }
+
+// Guarda en sessionStorage el usuario que inició sesión (sin la contraseña).
+export function guardarSesion(usuario: Usuario): void {
+    const sesion = {
+        run: usuario.run,
+        nombre: usuario.nombre,
+        apellidos: usuario.apellidos,
+        correo: usuario.correo,
+        tipoUsuario: usuario.tipoUsuario,
+    };
+    sessionStorage.setItem("usuarioActual", JSON.stringify(sesion));
+}

@@ -99,4 +99,4 @@ function DetalleProducto() {
   )
 }
 
-export default DetalleProducto
+export default DetalleProducto 
