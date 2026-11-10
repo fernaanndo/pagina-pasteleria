@@ -156,7 +156,7 @@ Cada componente lleva **al menos una prueba**.
 
 | Componente | Responsable | Lo usan | Props principales |
 |---|---|---|---|
-| `CampoFormulario` | Fernando (**primero**) | Login, Registro, Contacto, ProductoForm, UsuarioForm | `label`, `id`, `value`, `onChange`, `error`, `type` |
+| `CampoFormulario` | Fernando (**primero**) | Login, Registro, Contacto, ProductoForm, UsuarioForm | `label`, `id`, `value`, `onChange`, `error`, `type`, `readOnly`, `inputMode` y `prefijo` |
 | `SelectorRegionComuna` | Fernando (**primero**) | Registro, UsuarioForm | `region`, `comuna`, `onChangeRegion`, `onChangeComuna`, `errorRegion`, `errorComuna` |
 | `Navbar` | Fernando | TiendaLayout | — (lee el carrito desde el contexto) |
 | `Footer` | Fernando | TiendaLayout | — |
