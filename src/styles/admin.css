@@ -3,8 +3,15 @@
 /* Menú lateral */
 .sidebar {
   background-color: #ffffff;
-  min-height: 100vh;
-  border-right: 1px solid var(--gris-claro);
+  border-bottom: 1px solid var(--gris-claro);
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    min-height: 100vh;
+    border-bottom: none;
+    border-right: 1px solid var(--gris-claro);
+  }
 }
 
 .sidebar-logo {

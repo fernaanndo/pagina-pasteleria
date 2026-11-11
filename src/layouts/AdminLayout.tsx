@@ -16,7 +16,7 @@ function AdminLayout() {
                         <span className="texto-secundario">Administrador</span>
                     </header>
 
-                    <nav className="nav flex-column">
+                    <nav className="nav flex-row flex-wrap justify-content-center flex-md-column">
                         <NavLink className="nav-link" to="/admin" end>Inicio</NavLink>
                         <NavLink className="nav-link" to="/admin/productos">Productos</NavLink>
                         <NavLink className="nav-link" to="/admin/usuarios">Usuarios</NavLink>
