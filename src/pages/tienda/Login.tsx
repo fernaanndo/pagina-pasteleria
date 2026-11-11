@@ -51,7 +51,7 @@ function Login() {
   }
 
   return (
-    <main className="container py-4">
+    <div className="py-4">
       <section className="col-md-6 col-lg-4 mx-auto" aria-labelledby="login-titulo">
         <h1 className="h3 text-center">Pastelería 1000 Sabores</h1>
         <form onSubmit={manejarEnvio} noValidate>
@@ -86,7 +86,7 @@ function Login() {
           </button>
         </form>
       </section>
-    </main>
+    </div>
   )
 }
 

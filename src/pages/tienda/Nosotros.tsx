@@ -36,7 +36,7 @@ const desarrolladores = [
 
 function Nosotros() {
   return (
-    <main className="container py-4">
+    <div className="py-4">
       <section className="row align-items-center g-4 mb-5">
         <div className="col-md-6">
           <p className="text-muted mb-1">Nuestra historia</p>
@@ -87,7 +87,7 @@ function Nosotros() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }
 

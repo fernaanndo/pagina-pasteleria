@@ -129,7 +129,7 @@ function Registro() {
   }
 
   return (
-    <main className="container py-4">
+    <div className="py-4">
       <section className="col-md-8 col-lg-6 mx-auto" aria-labelledby="registro-titulo">
         <h1 className="h3 text-center">Pastelería 1000 Sabores</h1>
         <form onSubmit={manejarEnvio} noValidate>
@@ -251,7 +251,7 @@ function Registro() {
           </button>
         </form>
       </section>
-    </main>
+    </div>
   )
 }
 

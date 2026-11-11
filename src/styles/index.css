@@ -381,7 +381,7 @@
     overflow: hidden;
     border-radius: 5px;
     background-color: var(--crema-pastel);
-    background-image: url("../img/products/imagen_inicio.jpg");
+    background-image: url("/img/products/imagen_inicio.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

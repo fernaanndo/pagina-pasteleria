@@ -7,15 +7,15 @@ function DetalleBlog() {
 
   if (!blog) {
     return (
-      <main className="container py-4">
+      <div className="py-4">
         <p>No se encontró el blog.</p>
         <Link to="/blogs">← Volver a noticias</Link>
-      </main>
+      </div>
     )
   }
 
   return (
-    <main className="container py-4">
+    <div className="py-4">
       <Link to="/blogs">← Volver a noticias</Link>
       <article className="mt-3">
         <header className="mb-3">
@@ -50,7 +50,7 @@ function DetalleBlog() {
           {blog.textoBoton}
         </Link>
       </article>
-    </main>
+    </div>
   )
 }
 

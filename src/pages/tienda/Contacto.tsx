@@ -76,7 +76,7 @@ function Contacto() {
   }
 
   return (
-    <main className="container py-4">
+    <div className="py-4">
       <section className="col-md-8 col-lg-6 mx-auto" aria-labelledby="contacto-titulo">
         <h1 id="contacto-titulo" className="h3 text-center">
           Pastelería 1000 Sabores
@@ -141,7 +141,7 @@ function Contacto() {
           </button>
         </form>
       </section>
-    </main>
+    </div>
   )
 }
 

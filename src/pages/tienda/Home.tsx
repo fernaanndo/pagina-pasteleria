@@ -1,12 +1,18 @@
 import { Link } from 'react-router'
 import ListaProductos from '../../components/ListaProductos'
-import { productos } from '../../data/productos'
+import { obtenerProductos } from '../../services/storage'
+import { useCarrito } from '../../context/useCarrito'
 
 function Home() {
-  const recomendados = productos.slice(0, 4)
+  const { agregar } = useCarrito()
+  const recomendados = obtenerProductos().slice(0, 4)
 
   return (
-    <main className="container py-4">
+    <div className="py-4">
+      <div className="text-end mb-3">
+        <Link to="/login">Iniciar sesión</Link> | <Link to="/registro">Registrar usuario</Link>
+      </div>
+
       <section className="row align-items-center g-4 mb-5" aria-labelledby="home-title">
         <div className="col-md-6">
           <h1 id="home-title">Dulces momentos, hechos para compartir.</h1>
@@ -33,10 +39,10 @@ function Home() {
         </h2>
         <ListaProductos
           productos={recomendados}
-          onAgregar={(codigo) => console.log(codigo)}
+          onAgregar={(codigo) => agregar(codigo, 1)}
         />
       </section>
-    </main>
+    </div>
   )
 }
 

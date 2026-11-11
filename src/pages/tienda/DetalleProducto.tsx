@@ -2,10 +2,12 @@ import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Link, useParams } from 'react-router'
 import ListaProductos from '../../components/ListaProductos'
-import { productos } from '../../data/productos'
+import { obtenerProductos } from '../../services/storage'
+import { useCarrito } from '../../context/useCarrito'
 import type { Producto } from '../../types/producto'
 
 function FormularioCantidad({ producto }: { producto: Producto }) {
+  const { agregar } = useCarrito()
   const [cantidad, setCantidad] = useState('1')
   const [error, setError] = useState('')
   const [mensaje, setMensaje] = useState('')
@@ -18,8 +20,11 @@ function FormularioCantidad({ producto }: { producto: Producto }) {
       setMensaje('')
       return
     }
-    // Temporal: aquí se conectará el carrito de Fernando
-    console.log(producto.codigo, numero)
+    if (!agregar(producto.codigo, numero)) {
+      setError('No se pudo agregar: máximo 99 unidades.')
+      setMensaje('')
+      return
+    }
     setError('')
     setMensaje('Producto agregado al carrito.')
   }
@@ -58,21 +63,23 @@ function FormularioCantidad({ producto }: { producto: Producto }) {
 
 function DetalleProducto() {
   const { codigo } = useParams()
+  const { agregar } = useCarrito()
+  const productos = obtenerProductos()
   const producto = productos.find((p) => p.codigo === codigo)
 
   if (!producto) {
     return (
-      <main className="container py-4">
+      <div className="py-4">
         <p>No encontramos ese producto.</p>
         <Link to="/productos">Volver a productos</Link>
-      </main>
+      </div>
     )
   }
 
   const relacionados = productos.filter((p) => p.codigo !== producto.codigo).slice(0, 4)
 
   return (
-    <main className="container py-4">
+    <div className="py-4">
       <nav aria-label="Ruta de navegación" className="mb-2">
         <Link to="/">Inicio</Link> › <Link to="/productos">Productos</Link> › {producto.nombre}
       </nav>
@@ -93,10 +100,13 @@ function DetalleProducto() {
 
       <section>
         <h2>Productos relacionados</h2>
-        <ListaProductos productos={relacionados} onAgregar={(c) => console.log(c)} />
+        <ListaProductos
+          productos={relacionados}
+          onAgregar={(c) => agregar(c, 1)}
+        />
       </section>
-    </main>
+    </div>
   )
 }
 
-export default DetalleProducto 
+export default DetalleProducto

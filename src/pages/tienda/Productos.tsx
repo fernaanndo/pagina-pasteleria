@@ -1,18 +1,21 @@
 import ListaProductos from '../../components/ListaProductos'
-import { productos } from '../../data/productos'
+import { obtenerProductos } from '../../services/storage'
+import { useCarrito } from '../../context/useCarrito'
 
 function Productos() {
+  const { agregar } = useCarrito()
+
   return (
-    <main className="container py-4">
+    <div className="py-4">
       <div className="mb-4">
         <h1>Productos</h1>
         <p>Descubre nuestra variedad de tortas y pasteles.</p>
       </div>
       <ListaProductos
-        productos={productos}
-        onAgregar={(codigo) => console.log(codigo)}
+        productos={obtenerProductos()}
+        onAgregar={(codigo) => agregar(codigo, 1)}
       />
-    </main>
+    </div>
   )
 }
 

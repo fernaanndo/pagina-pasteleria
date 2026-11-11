@@ -3,7 +3,7 @@ import { blogs } from '../../data/blogs'
 
 function Blogs() {
   return (
-    <main className="container py-4">
+    <div className="py-4">
       <header className="mb-4">
         <p className="text-muted mb-1">Historias recién horneadas</p>
         <h1>Noticias importantes</h1>
@@ -15,7 +15,7 @@ function Blogs() {
           <BlogCard key={blog.id} blog={blog} />
         ))}
       </section>
-    </main>
+    </div>
   )
 }
 
