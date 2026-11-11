@@ -1,0 +1,23 @@
+import { beforeEach, describe, expect, test } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { MemoryRouter } from 'react-router'
+import AdminUsuarios from './AdminUsuarios'
+import { usuarios } from '../../data/usuarios'
+
+describe('AdminUsuarios', () => {
+  beforeEach(() => {
+    localStorage.clear()
+  })
+
+  test('al eliminar un usuario lo quita de la tabla y muestra un mensaje', async () => {
+    const user = userEvent.setup()
+    render(<MemoryRouter><AdminUsuarios /></MemoryRouter>)
+    const filasAntes = screen.getAllByRole('row').length
+
+    await user.click(screen.getAllByRole('button', { name: 'Eliminar' })[0])
+
+    expect(screen.getAllByRole('row')).toHaveLength(filasAntes - 1)
+    expect(screen.getByRole('alert')).toHaveTextContent(`Usuario ${usuarios[0].run}`)
+  })
+})
