@@ -54,17 +54,17 @@ La aplicación queda disponible en `http://localhost:5173`.
 
 ```
 src/
-  data/        Datos iniciales (productos, usuarios, regiones)
-  services/    Persistencia en localStorage (obtener / guardar)
-  types/       Interfaces de TypeScript (Producto, Usuario, Region)
-  utils/       Validadores de formularios
+  components/  Componentes reutilizables (Navbar, ProductoCard, TablaProductos...)
+  context/     Estado global del carrito (CarritoContext, CarritoProvider, useCarrito)
+  data/        Datos iniciales (productos, usuarios, regiones, blogs)
+  services/    Persistencia en localStorage (CRUD de productos, usuarios y carrito)
+  types/       Interfaces de TypeScript (Producto, Usuario, Blog, ItemCarrito...)
+  utils/       Validadores y lógica del carrito y de los formularios
   layouts/     TiendaLayout y AdminLayout (partes comunes de cada sección)
   pages/
     tienda/    Páginas públicas de la tienda
     admin/     Páginas del panel de administración
   styles/      Estilos globales, de la tienda y del admin
-public/
-  img/         Imágenes de productos y logo
 ```
 
 Cada componente tiene su prueba en el mismo directorio, con el nombre `Componente.test.tsx`.
