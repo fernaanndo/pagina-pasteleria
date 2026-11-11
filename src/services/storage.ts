@@ -1,5 +1,6 @@
 import type { Producto } from "../types/producto";
 import type { Usuario } from "../types/usuario";
+import type { MensajeContacto } from "../types/mensajeContacto";
 import type { ItemCarrito } from "../types/carrito";
 import { productos } from "../data/productos";
 import { usuarios } from "../data/usuarios";
@@ -40,6 +41,18 @@ export function obtenerUsuarios(): Usuario[] {
 
 export function guardarUsuarios(lista: Usuario[]): void {
     localStorage.setItem(CLAVE_USUARIOS, JSON.stringify(lista));
+}
+
+// Guarda en sessionStorage el usuario que inició sesión (sin la contraseña).
+export function guardarSesion(usuario: Usuario): void {
+    const sesion = {
+        run: usuario.run,
+        nombre: usuario.nombre,
+        apellidos: usuario.apellidos,
+        correo: usuario.correo,
+        tipoUsuario: usuario.tipoUsuario,
+    };
+    sessionStorage.setItem("usuarioActual", JSON.stringify(sesion));
 }
 
 export function buscarProductoPorCodigo(codigo: string): Producto | undefined {
@@ -108,4 +121,13 @@ export function obtenerCarrito(): ItemCarrito[] {
 
 export function guardarCarrito(items: ItemCarrito[]): void {
     localStorage.setItem(CLAVE_CARRITO, JSON.stringify(items));
+}
+
+const CLAVE_MENSAJES_CONTACTO = "pasteleria-mensajes-contacto";
+
+// Agrega un mensaje de contacto a la lista guardada en localStorage.
+export function guardarMensajeContacto(mensaje: MensajeContacto): void {
+    const guardados = localStorage.getItem(CLAVE_MENSAJES_CONTACTO);
+    const lista: MensajeContacto[] = guardados ? JSON.parse(guardados) : [];
+    localStorage.setItem(CLAVE_MENSAJES_CONTACTO, JSON.stringify([...lista, mensaje]));
 }
